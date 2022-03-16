@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+
+auth:
+  dauth:
+    base-url: ${DAUTH_BASE_URL}
+    client-id: ${DAUTH_CLIENT}
+    client-secret: ${DAUTH_SECRET}
+    redirect-url: ${DAUTH_REDIRECT}
