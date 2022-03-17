@@ -24,7 +24,7 @@ public class GlobalControllerAdvice {
                 getMostSpecificCause(ex).getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR));
+                .body(new ErrorResponse(ErrorCode.BAD_REQUEST_ERROR));
     }
 
     @ExceptionHandler(value = BaseException.class)
@@ -34,7 +34,7 @@ public class GlobalControllerAdvice {
                 getMostSpecificCause(ex).getMessage());
         return ResponseEntity
                 .status(ex.getErrorCode().getStatus())
-                .body(new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR));
+                .body(new ErrorResponse(ex.getErrorCode()));
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
