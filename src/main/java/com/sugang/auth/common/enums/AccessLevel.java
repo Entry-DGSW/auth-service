@@ -11,5 +11,5 @@ public enum AccessLevel {
     TEACHER(2),
     ADMIN(3);
 
-    private int accessLevel;
+    private final int accessLevel;
 }
