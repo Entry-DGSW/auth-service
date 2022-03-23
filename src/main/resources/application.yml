@@ -9,7 +9,7 @@ spring:
     stream:
       bindings:
         output:
-          destination: auth-user
+          destination: authToUser
           content-type: application/json
       kafka:
         binder:

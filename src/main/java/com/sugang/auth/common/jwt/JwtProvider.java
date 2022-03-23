@@ -16,7 +16,7 @@ public class JwtProvider {
 
     private final JwtProperties jwtProperties;
 
-    public String generateAccessToken(String userId, AccessLevel permission) {
+    public String generateAccessToken(String userId, int permission) {
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS256, getSecretKey())
                 .claim("userId", userId)

@@ -24,7 +24,7 @@ public class DauthInfoResponse {
         private int number;
         private String name;
         private String profileImage;
-        private AccessLevel accessLevel;
+        private int accessLevel;
         private String email;
     }
 }

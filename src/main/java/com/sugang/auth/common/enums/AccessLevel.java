@@ -8,8 +8,10 @@ import lombok.Getter;
 public enum AccessLevel {
 
     STUDENT(1),
-    TEACHER(2),
-    ADMIN(3);
+    PARENT(2),
+    TEACHER(3),
+    ADMIN(4);
+
 
     private final int accessLevel;
 }
