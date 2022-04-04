@@ -5,9 +5,9 @@ import com.sugang.auth.controller.auth.dto.response.TokenResponse;
 import com.sugang.auth.service.auth.DauthAuthService;
 import com.sugang.auth.service.auth.QueryDauthLinkService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class AuthFacadeImpl implements AuthFacade {
 
