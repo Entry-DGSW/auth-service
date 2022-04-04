@@ -2,26 +2,21 @@ package com.sugang.auth.controller.auth;
 
 import com.sugang.auth.controller.auth.dto.request.AuthRequest;
 import com.sugang.auth.controller.auth.dto.response.TokenResponse;
-import com.sugang.auth.service.auth.DauthAuthService;
-import com.sugang.auth.service.auth.QueryOauthLinkService;
+import com.sugang.auth.service.auth.facade.AuthFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final QueryOauthLinkService queryOauthLinkService;
-    private final DauthAuthService dauthAuthService;
+    private final AuthFacade authFacade;
 
     @GetMapping("dauth")
     public ResponseEntity<String> getDauthQuery() {
         return ResponseEntity.ok(
-                queryOauthLinkService.execute());
+                authFacade.getQueryDauthLink());
     }
 
     @PutMapping("dauth")
@@ -29,6 +24,6 @@ public class AuthController {
             @RequestBody AuthRequest request
     ) {
         return ResponseEntity.ok(
-                dauthAuthService.execute(request));
+                authFacade.dauthLogin(request));
     }
 }

@@ -30,6 +30,8 @@ public class DauthAuthService {
         // Kafka 에 데이터 넣기
         publishUserDataService.excute(dauthInfoResponse);
 
-        return new TokenResponse(jwtProvider.generateAccessToken(dauthInfoResponse.getUniqueId(), dauthInfoResponse.getAccessLevel()));
+        return new TokenResponse(
+                jwtProvider.generateAccessToken(dauthInfoResponse.getUniqueId(), dauthInfoResponse.getAccessLevel()),
+                dauthInfoResponse.getName(), dauthInfoResponse.getAccessLevel());
     }
 }

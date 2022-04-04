@@ -1,8 +1,6 @@
 package com.sugang.auth.controller.auth.dto.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @Builder
@@ -10,4 +8,6 @@ import lombok.Getter;
 public class TokenResponse {
 
     private String token;
+    private String name;
+    private int accessLevel;
 }

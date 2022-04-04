@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class QueryOauthLinkService {
+public class QueryDauthLinkService {
 
     private static final String DAUTH_QUERY_STRING = "?response_type=code&client_id=%s&state=cioaasukhcsvuihiusadf&redirect_uri=%s";
 
