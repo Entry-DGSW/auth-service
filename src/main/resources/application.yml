@@ -10,7 +10,7 @@ management:
 logging:
   level:
     root: WARN
-    com.sugang.sugang: DEBUG
+    com.sugang.auth: DEBUG
 
 spring:
   application:
