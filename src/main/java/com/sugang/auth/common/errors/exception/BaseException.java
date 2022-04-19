@@ -20,4 +20,8 @@ public class BaseException extends RuntimeException {
     public String getMessage() {
         return errorCode.getMessage();
     }
+
+    public static BaseException of(ErrorCode errorCode) {
+        return new BaseException(errorCode);
+    }
 }

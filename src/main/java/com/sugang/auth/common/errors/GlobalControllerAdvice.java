@@ -24,7 +24,7 @@ public class GlobalControllerAdvice {
                 getMostSpecificCause(ex).getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse(ErrorCode.BAD_REQUEST_ERROR));
+                .body(ErrorResponse.of(ErrorCode.BAD_REQUEST_ERROR));
     }
 
     @ExceptionHandler(value = BaseException.class)

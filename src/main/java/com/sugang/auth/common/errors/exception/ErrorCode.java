@@ -13,6 +13,10 @@ public enum ErrorCode {
     DAUTH_GONE_ERROR(410, "DAUTH-410-1", "Dauth server gone error occurred"),
     DAUTH_SERVER_ERROR(500, "DAUTH-500-1", "Dauth server error occurred"),
 
+    TOKEN_EXPIRE_ERROR(410, "TOKEN-410-1", "Token is expired"),
+    TOKEN_FORGED_ERROR(401, "TOKEN-401-1", "Token is forged"),
+    TOKEN_BAD_REQUEST_ERROR(400, "TOKEN-400-1", "Token is not avaliable"),
+
     BAD_REQUEST_ERROR(400, "AUTH-400-1", "Bad Request error occurred"),
     INTERNAL_SERVER_ERROR(500, "AUTH-500-1", "Server error occurred");
 

@@ -1,9 +1,7 @@
 package com.sugang.auth.common.errors;
 
 import com.sugang.auth.common.errors.exception.ErrorCode;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @Builder
@@ -18,5 +16,9 @@ public class ErrorResponse {
         this.status = errorCode.getStatus();
         this.code = errorCode.getCode();
         this.message = errorCode.getMessage();
+    }
+
+    public static ErrorResponse of(ErrorCode errorCode) {
+        return new ErrorResponse(errorCode);
     }
 }
