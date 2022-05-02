@@ -14,8 +14,8 @@ public class RestTemplateConfig {
 
     private final RestTemplateBuilder restTemplateBuilder;
 
-    private final String DODAM_AUTH = "http://dauth.b1nd.com";
-    private final String DODAM_OPENAPI = "http://open.dodam.b1nd.com";
+    private final String DODAM_AUTH = "http://dauth.b1nd.com/api";
+    private final String DODAM_OPENAPI = "http://open.dodam.b1nd.com/api";
 
     private RestTemplate restTemplate(final String endpoint) {
         return restTemplateBuilder.rootUri(endpoint)
