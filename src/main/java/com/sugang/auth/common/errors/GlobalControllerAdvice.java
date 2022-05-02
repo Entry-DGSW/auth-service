@@ -6,9 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.core.NestedExceptionUtils.getMostSpecificCause;
 
@@ -33,8 +31,8 @@ public class GlobalControllerAdvice {
                 getMostSpecificCause(ex),
                 getMostSpecificCause(ex).getMessage());
         return ResponseEntity
-                .status(ex.getErrorCode().getStatus())
-                .body(new ErrorResponse(ex.getErrorCode()));
+                .status(ex.getStatus())
+                .body(ErrorResponse.of(ex));
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -43,6 +41,6 @@ public class GlobalControllerAdvice {
         log.error("서버 오류 발생", ex);
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                .body(new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR));
+                .body(ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR));
     }
 }

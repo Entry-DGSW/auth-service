@@ -1,5 +1,6 @@
 package com.sugang.auth.common.errors;
 
+import com.sugang.auth.common.errors.exception.BaseException;
 import com.sugang.auth.common.errors.exception.ErrorCode;
 import lombok.*;
 
@@ -20,5 +21,9 @@ public class ErrorResponse {
 
     public static ErrorResponse of(ErrorCode errorCode) {
         return new ErrorResponse(errorCode);
+    }
+
+    public static ErrorResponse of(BaseException baseException) {
+        return new ErrorResponse(baseException.getStatus(), baseException.getCode(), baseException.getMessage());
     }
 }
