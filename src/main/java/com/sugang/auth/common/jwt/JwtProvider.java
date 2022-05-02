@@ -30,7 +30,15 @@ public class JwtProvider {
                 .compact();
     }
 
-    public Claims parseToken(String token) throws BaseException {
+    public TokenInfo parseTokenData(String token) throws BaseException {
+        Claims tokenData = parseToken(token);
+
+        return new TokenInfo(
+                (String) tokenData.get("userId"),
+                (String) tokenData.get("permission"));
+    }
+
+    private Claims parseToken(String token) throws BaseException {
         try {
             return Jwts.parser()
                     .setSigningKey(getSecretKey())

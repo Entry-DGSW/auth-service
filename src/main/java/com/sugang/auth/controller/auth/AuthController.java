@@ -1,5 +1,6 @@
 package com.sugang.auth.controller.auth;
 
+import com.sugang.auth.common.jwt.TokenInfo;
 import com.sugang.auth.controller.auth.dto.request.AuthRequest;
 import com.sugang.auth.controller.auth.dto.response.TokenResponse;
 import com.sugang.auth.service.auth.facade.AuthFacade;
@@ -26,5 +27,13 @@ public class AuthController {
     ) {
         return ResponseEntity.ok(
                 authFacade.dauthLogin(request));
+    }
+
+    @GetMapping("dauth")
+    public ResponseEntity<TokenInfo> getTokenParse(
+            @RequestHeader("authorization") String token
+    ) {
+        return ResponseEntity.ok(
+                authFacade.getTokenInfo(token));
     }
 }
