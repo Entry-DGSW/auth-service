@@ -29,7 +29,7 @@ public class AuthController {
                 authFacade.dauthLogin(request));
     }
 
-    @GetMapping("dauth")
+    @GetMapping("token")
     public ResponseEntity<TokenInfo> getTokenParse(
             @RequestHeader("authorization") String token
     ) {

@@ -8,5 +8,5 @@ import lombok.*;
 public class TokenInfo {
 
     private final String userId;
-    private final String permission;
+    private final int permission;
 }

@@ -26,7 +26,7 @@ public class JwtProvider {
                 .claim("userId", userId)
                 .claim("permission", permission)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getExp() * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getExp() * 10000))
                 .compact();
     }
 
@@ -35,7 +35,7 @@ public class JwtProvider {
 
         return new TokenInfo(
                 (String) tokenData.get("userId"),
-                (String) tokenData.get("permission"));
+                Integer.parseInt(tokenData.get("permission").toString()));
     }
 
     private Claims parseToken(String token) throws BaseException {
