@@ -7,18 +7,16 @@ import lombok.Getter;
 @AllArgsConstructor
 public class BaseException extends RuntimeException {
 
-    private final ErrorCode errorCode;
+    private final int status;
 
-    public int getStatus() {
-        return errorCode.getStatus();
-    }
+    private final String code;
 
-    public String getCode() {
-        return errorCode.getCode();
-    }
+    private final String message;
 
-    public String getMessage() {
-        return errorCode.getMessage();
+    public BaseException(ErrorCode errorCode) {
+        this.status = errorCode.getStatus();
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMessage();
     }
 
     public static BaseException of(ErrorCode errorCode) {
